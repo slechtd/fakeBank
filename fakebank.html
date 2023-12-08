@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FakeBank Login</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 375px;
+      width: 100%;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="button"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type="button"] {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    input[type="button"]:hover {
+      background-color: #0056b3;
+    }
+    .welcome-message {
+      display: none;
+      text-align: center;
+    }
+  </style>
+<script>
+  function checkCredentials() {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    var loginForm = document.getElementById("login-form");
+    var welcomeMessage = document.getElementById("welcome-message");
+    var pleaseLogIn = document.getElementById("please-log-in");
+
+    if (username === "test1" && password === "heslo1") {
+      titleHeader.style.display = "none";
+      pleaseLogIn.style.display = "none";
+      loginForm.style.display = "none";
+      welcomeMessage.style.display = "block";
+    } else if (username === "test1" && password === "") {
+      titleHeader.style.display = "none";
+      pleaseLogIn.style.display = "none";
+      loginForm.style.display = "none";
+      welcomeMessage.style.display = "block";
+    } else if (username === "" || password === "") {
+      alert("Chyba: Zadejte platné uživatelské jméno a heslo!");
+    } else if (username === "test2" && password === "heslo2") {
+      alert("ERROR 418: Authentication Protocol Mismatch. The cryptographic handshake failed due to a protocol mismatch between user and system algorithms. Please verify your cryptographic keys and ensure compatibility with system protocols.");
+    } else {
+      alert("Chyba: Zadejte platné uživatelské jméno a heslo!");
+    }
+  }
+</script>
+</head>
+<body>
+  <h2 id="titleHeader">Vítejte v internetovém bankovnictví FakeBank, s.r.o.</h2>
+  <h3 id="please-log-in">Zadejte uživatelské jméno a heslo.</h3>
+  <form id="login-form">
+    <label for="username">Uživatelské jméno:</label>
+    <input type="text" id="username" name="username"><br><br>
+
+    <label for="password">Heslo:</label>
+    <input type="password" id="password" name="password"><br><br>
+
+    <input type="button" value="Přihlásit" onclick="checkCredentials()">
+  </form>
+
+  <div class="welcome-message" id="welcome-message">
+    <h2>Vítejte!</h2>
+    <p>Úspěšně jste se přihlásili.</p>
+  </div>
+</body>
+</html>
